@@ -1,0 +1,114 @@
+#hamburger-menu {
+	position: fixed;
+	bottom: 1rem;
+	left: 1rem;
+	color: #bbf643;
+	transition: all 1s ease-in-out;
+	display: grid;
+	grid-template-columns: 0.5fr 1fr 0.5fr;
+	z-index: 10;
+	.menu-icon {
+		justify-self: self-start;
+		.menu-icon-bar {
+			width: 2rem;
+			height: 0.2rem;
+			margin: 0.7rem;
+			transition: all 0.3s ease-in-out;
+			background-color: #bbf643;
+			&:nth-child(2) {
+				transform: translateX(0.7rem);
+			}
+		}
+	}
+
+	&.close {
+		animation: close 0.3s ease-in-out forwards;
+		&:hover {
+			cursor: pointer;
+			.menu-icon-bar {
+				&:nth-child(2) {
+					transform: translateX(-0.3rem);
+				}
+			}
+		}
+	}
+	&.open {
+		background-color: #50514d;
+		animation: open 0.5s ease-in-out forwards;
+		.menu-icon-bar {
+			&:nth-child(1) {
+				transform: rotate(-45deg) translateX(-0.9rem);
+			}
+			&:nth-child(2) {
+				transform: translateX(0.9rem) scale(0);
+			}
+			&:nth-child(3) {
+				transform: rotate(45deg) translateX(-0.9rem);
+			}
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@keyframes open {
+	from {
+		width: 1rem;
+	}
+	to {
+		width: 40rem;
+	}
+}
+
+@keyframes close {
+	from {
+		width: 30rem;
+	}
+	to {
+		width: 1rem;
+	}
+}
+
+#menu-list {
+	position: absolute;
+	transform: translateY(200%);
+	justify-self: flex-start;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 0.5rem;
+	list-style: none;
+	background-color: #282828;
+	color: #bbf643;
+	display: grid;
+	transition: all 0.3s ease-in-out forwards;
+	margin-left: 5rem;
+}
+
+.menu-list-item {
+	font-size: 1.5rem;
+	// transform: rotateZ(-20deg) translateX(50%) translateY(200%);
+	animation: flip-bounce-back 0.3s ease-in-out forwards;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+@keyframes flip-bounce-back {
+	0% {
+		transform: rotateZ(-20deg) translateX(50%) translateY(200%);
+	}
+	50% {
+		transform: rotateZ(-30deg) translateX(50%) translateY(-300%);
+	}
+	100% {
+		transform: rotateZ(-30deg) translateX(50%) translateY(-200%);
+	}
+}
+
+// delay each menu item by 0.1s
+@for $i from 1 through 4 {
+	.menu-list-item:nth-child(#{$i}) {
+		animation-delay: 0.4s * $i;
+	}
+}

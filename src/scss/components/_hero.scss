@@ -1,0 +1,28 @@
+@use '../abstracts/variables' as vars;
+
+.hero {
+ background: vars.$bg-image no-repeat center right / cover;
+ height: 100vh;
+ color: #ffffff;
+ &__container {
+  max-width: vars.$website-width;
+  padding: 2rem;
+  margin: auto;
+  overflow: hidden;
+  margin: 0 auto;
+ }
+ &__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  height: 100%;
+  h1 {
+   margin-top: 20vh;
+   font-size: 4rem;
+   @media (max-width: 30rem) {
+    /* 480px */
+    font-size: 2rem;
+   }
+  }
+ }
+}
