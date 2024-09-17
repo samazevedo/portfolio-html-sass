@@ -1,30 +1,48 @@
 @use '../abstracts/variables' as vars;
 #navbar {
- display: grid;
- grid-template-columns: 0.5fr 1fr;
- gap: 1rem;
- align-items: center;
+	display: grid;
+	grid-template-columns: 0.5fr 1fr;
+	gap: 1rem;
+	align-items: center;
 
- ul {
-  display: flex;
-  justify-self: end;
-  list-style: none;
-  li {
-   padding: 0.5rem 1rem;
-  }
- }
- a {
-  text-decoration: none;
-  color: #ffffff;
-  text-transform: uppercase;
-  border-bottom: 0.3rem solid transparent;
-  padding-bottom: 0.5rem;
-  transition: border-color 0.3s ease-in-out;
-  &:hover {
-   border-color: vars.$main-color;
-  }
-  &.active {
-   border-color: vars.$main-color;
-  }
- }
+	ul {
+		display: flex;
+		justify-self: end;
+		list-style: none;
+		li {
+			padding: 0.5rem 1rem;
+		}
+	}
+	a {
+		text-decoration: none;
+		color: #ffffff;
+		text-transform: uppercase;
+		border-bottom: 0.3rem solid transparent;
+		padding-bottom: 0.5rem;
+		transition: border-color 0.3s ease-in-out;
+		&:hover {
+			border-color: vars.$main-color;
+		}
+		&.active {
+			border-color: vars.$main-color;
+		}
+	}
+
+	@media (max-width: 48rem) {
+		/* 768px */
+		ul {
+			justify-self: center;
+		}
+	}
+
+	@media (max-width: 30rem) {
+		/* 480px */
+		font-size: 0.8rem;
+		gap: 0.5rem;
+		ul {
+			li {
+				padding: 0.25rem;
+			}
+		}
+	}
 }

@@ -1,28 +1,57 @@
 @use '../abstracts/variables' as vars;
 
 .hero {
- background: vars.$bg-image no-repeat center right / cover;
- height: 100vh;
- color: #ffffff;
- &__container {
-  max-width: vars.$website-width;
-  padding: 2rem;
-  margin: auto;
-  overflow: hidden;
-  margin: 0 auto;
- }
- &__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  place-items: center;
-  height: 100%;
-  h1 {
-   margin-top: 20vh;
-   font-size: 4rem;
-   @media (max-width: 30rem) {
-    /* 480px */
-    font-size: 2rem;
-   }
-  }
- }
+	background: vars.$bg-image no-repeat center right / cover;
+	height: 100vh;
+	color: #ffffff;
+	&__container {
+		max-width: vars.$website-width;
+		padding: 2rem;
+		margin: auto;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		place-items: center;
+		height: 100%;
+		h1 {
+			margin-top: 20vh;
+			font-size: 4rem;
+			@media (max-width: 30rem) {
+				/* 480px */
+				font-size: 1.6rem;
+			}
+		}
+	}
+}
+
+#typewriter {
+	border-right: 0.1em solid black; /* Blinking cursor effect */
+	white-space: nowrap; /* Prevent text from wrapping */
+	overflow: hidden; /* Hide overflowing text */
+	animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+	from,
+	to {
+		border-color: transparent;
+	}
+	50% {
+		border-color: vars.$main-color;
+	}
+}
+
+.lead {
+	margin-top: 2rem;
+	margin-bottom: 3rem;
+	font-size: 1.5rem;
+	font-style: italic;
+
+	@media (max-width: 30rem) {
+		/* 480px */
+		font-size: 0.77rem;
+	}
 }

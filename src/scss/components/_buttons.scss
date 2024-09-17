@@ -1,14 +1,19 @@
 @use '../abstracts/variables' as vars;
 .btn {
- text-transform: uppercase;
- padding: 1rem 1rem;
- border: none;
- outline: none;
- font-size: 0.8rem;
- transition: all 0.5s ease-in-out;
+	text-transform: uppercase;
+	padding: 1rem 1rem;
+	border: none;
+	outline: none;
+	font-size: 0.8rem;
+	transition: background-color 0.5s ease-in-out;
 
- &:hover {
-  cursor: pointer;
-  background-color: vars.$main-color;
- }
+	&:hover {
+		cursor: pointer;
+		background-color: vars.$main-color;
+	}
+	@media (max-width: 30rem) {
+		/* 480px */
+		padding: 0.7rem 0.7rem;
+		font-size: 0.7rem;
+	}
 }
