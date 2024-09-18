@@ -1,0 +1,40 @@
+@use '../abstracts/variables' as vars;
+.footer {
+	background-color: vars.$dark-color;
+	color: vars.$light-color;
+	@media (max-width: 30rem) {
+		/* 480px */
+		font-size: smaller;
+	}
+	i {
+		color: vars.$light-color;
+
+		font-size: 1.5rem;
+		transition: color 0.3s ease-in-out;
+		&:hover {
+			cursor: pointer;
+			color: vars.$main-color;
+		}
+	}
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		margin: auto;
+		padding: 2rem;
+		place-items: center;
+
+		@media (max-width: 48rem) {
+			/* 768px */
+			grid-template-columns: 1fr;
+		}
+	}
+	&__socials ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		max-width: 10rem;
+		margin: 0 auto;
+		place-items: center;
+	}
+}
