@@ -1,0 +1,40 @@
+@use '../abstracts/variables' as vars;
+.stats {
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+
+	&:nth-child(odd) {
+		background-color: vars.$light-color;
+	}
+	&:nth-child(even) {
+		background-color: vars.$medium-color;
+	}
+
+	ul {
+		list-style: none;
+	}
+	&__group {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		min-width: vars.$website-width;
+
+		@media (max-width: 48rem) {
+			/* 768px */
+			grid-template-columns: repeat(2, 1fr);
+			min-width: vars.$table-width;
+		}
+		@media (max-width: 30rem) {
+			/* 480px */
+			grid-template-columns: repeat(1, 1fr);
+			min-width: vars.$mobile-width;
+		}
+	}
+
+	&__title {
+		font-size: 1.2rem;
+	}
+	&__number {
+		font-size: 2rem;
+	}
+}

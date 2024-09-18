@@ -1,0 +1,37 @@
+@use '../abstracts/variables' as vars;
+.card {
+	padding: 1rem;
+	text-align: center;
+	i {
+		font-size: 2rem;
+		color: vars.$main-color;
+	}
+	p {
+		font-size: 0.8rem;
+	}
+
+	@media (max-width: 30rem) {
+		/* 480px */
+		padding: 1rem;
+		i {
+			font-size: 3rem;
+		}
+		p {
+			font-size: 1rem;
+		}
+	}
+	&__group {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+
+		@media (max-width: 48rem) {
+			/* 768px */
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: 30rem) {
+			/* 480px */
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}
