@@ -1,0 +1,59 @@
+@use '../abstracts/variables' as vars;
+.process {
+	position: relative;
+	padding: 1rem;
+	overflow: hidden;
+	max-width: 50rem;
+	display: grid;
+	place-items: center;
+
+	i {
+		position: relative;
+		width: 200px;
+		height: 200px;
+		display: grid;
+		place-items: center;
+		background-color: vars.$dark-color;
+		color: vars.$light-color;
+		border-radius: 50%;
+		font-size: 3.5rem;
+		transition: background-color 0.3s ease-in-out;
+		&:hover {
+			cursor: pointer;
+			background-color: vars.$main-color;
+		}
+	}
+	&__group {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		place-items: center;
+		gap: 1rem;
+		max-width: vars.$website-width;
+		margin: 0 auto;
+		@media (max-width: 48rem) {
+			/* 768px */
+			grid-template-columns: repeat(2, 1fr);
+			min-width: vars.$table-width;
+		}
+		@media (max-width: 30rem) {
+			/* 480px */
+			grid-template-columns: repeat(1, 1fr);
+			min-width: vars.$mobile-width;
+		}
+	}
+	&__step {
+		position: absolute;
+		top: 0.5rem;
+		right: 0;
+		width: 30%;
+		height: 30%;
+		display: grid;
+		place-items: center;
+		background-color: vars.$main-color;
+		color: vars.$light-color;
+		border-radius: 50%;
+		text-align: center;
+		font-size: 1.5rem;
+		transition: background-color 0.3s ease-in-out;
+	}
+}
