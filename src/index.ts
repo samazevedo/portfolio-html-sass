@@ -52,9 +52,26 @@ const typewriterEffect = (
 	type();
 };
 
+const initProgressBars = (): void => {
+	const progressBars = document.querySelectorAll('.progressbar__container');
+
+	progressBars.forEach((bar) => {
+		const progress = bar.getAttribute('data-progress'); // Get progress percentage from data attribute
+		const progressBar = bar.querySelector('.progressbar');
+
+		// Cast the Element to HTMLElement to access the style property
+		if (progressBar && progress !== null) {
+			(progressBar as HTMLElement).style.width = progress + '%'; // Set the width dynamically
+			progressBar.innerHTML = `${progress}%`; // Set the label dynamically with the percentage` progress + '%'; // Display the percentage inside the progress bar
+		}
+	});
+};
+
 window.addEventListener('DOMContentLoaded', () => {
 	const typewriterElement = document.getElementById('typewriter') as HTMLElement;
 	if (typewriterElement) {
 		typewriterEffect(typewriterElement);
 	}
+
+	initProgressBars();
 });

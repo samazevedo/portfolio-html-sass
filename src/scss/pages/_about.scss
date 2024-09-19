@@ -34,3 +34,95 @@
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
 }
+
+$progress-bar-height: 1.5rem;
+$progress-bar-background: #ffffff;
+$progress-bar-color: #f89c71;
+$progress-text-color: white;
+.section {
+	&.skills {
+		display: grid;
+		width: 100%;
+		background-color: vars.$dark-color;
+		color: vars.$light-color;
+		padding: 1rem;
+		margin-bottom: 1rem;
+		@media (max-width: 48rem) {
+			/* 768px */
+			font-size: smaller;
+		}
+		@media (max-width: 30rem) {
+			/* 480px */
+			font-size: x-small;
+		}
+		.progressbar__container {
+			width: 100%;
+			margin: 20px 0;
+			position: relative;
+			background-color: $progress-bar-background;
+			border-radius: 0.1rem;
+			height: $progress-bar-height;
+			display: grid;
+			grid-template-columns: 1fr 0.001fr;
+			overflow: hidden;
+		}
+		.progressbar__label {
+			position: absolute;
+			left: 10px;
+			z-index: 1;
+			color: black;
+			font-weight: bold;
+			font-size: 1rem;
+		}
+		.progressbar {
+			width: 0;
+			background-color: $progress-bar-color;
+			height: 100%;
+			line-height: $progress-bar-height;
+			color: $progress-text-color;
+			border-radius: 0.1rem;
+			transition: width 0.3s ease-in-out; // Smooth animation
+			display: grid;
+			justify-content: right;
+			padding-right: 0.5rem;
+		}
+	}
+}
+/* Container for the icons */
+.section.tech {
+	width: 100%;
+	display: grid;
+
+	height: 10rem; /* Adjust as needed for your icons' size */
+	overflow: hidden; /* Hide the overflow to make the animation smooth */
+	position: relative;
+	margin: 0 auto;
+}
+
+/* UL styling for horizontal scroll */
+.section.tech ul {
+	display: flex; /* Aligns items horizontally */
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	animation: scroll-horizontal 100s linear infinite; /* Infinite horizontal scrolling */
+}
+
+/* LI styling */
+.section.tech ul li {
+	padding: 0 20px; /* Spacing between icons */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem; /* Icon size */
+}
+
+/* Keyframes for horizontal scrolling */
+@keyframes scroll-horizontal {
+	0% {
+		transform: translateX(0); /* Start at the beginning */
+	}
+	100% {
+		transform: translateX(-100%); /* Scroll to the end of the list */
+	}
+}
