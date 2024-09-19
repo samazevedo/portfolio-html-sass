@@ -28,6 +28,20 @@
 		border-left: 0.5rem solid vars.$main-color;
 		padding: 1rem;
 	}
+
+	@media (max-width: 48rem) {
+		/* 768px */
+		grid-template-columns: 1fr;
+		&__image {
+			img {
+				width: 20rem;
+			}
+		}
+	}
+	@media (max-width: 30rem) {
+		/* 480px */
+		font-size: x-small;
+	}
 }
 .awards {
 	display: grid;
