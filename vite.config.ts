@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import path from 'path'
-import glsl from 'vite-plugin-glsl'
+import { defineConfig } from 'vite';
+import path from 'path';
+import glsl from 'vite-plugin-glsl';
 
 export default defineConfig({
 	base: './', // use relative path for base
@@ -11,15 +11,15 @@ export default defineConfig({
 		host: '0.0.0.0', // listen to network via ip address
 		port: 3000,
 		strictPort: true,
-		open: true,
+		open: true
 	},
 	resolve: {
 		alias: {
 			// import modules from the src directory using '@'
 			'@': path.resolve(__dirname, './src'),
 			'@helpers': path.resolve(__dirname, './src/helpers'),
-			'@shaders': path.resolve(__dirname, './src/shaders'),
-		},
+			'@shaders': path.resolve(__dirname, './src/shaders')
+		}
 	},
 	build: {
 		outDir: '../dist',
@@ -31,10 +31,15 @@ export default defineConfig({
 				// config output asset file names
 				entryFileNames: 'js/[name]-[hash].js',
 				chunkFileNames: 'js/[name]-[hash].js',
-				assetFileNames: '[ext]/[name]-[hash].[ext]',
+				assetFileNames: '[ext]/[name]-[hash].[ext]'
 			},
-			input: 'src/index.html',
-		},
+			input: {
+				main: path.resolve(__dirname, 'src/index.html'),
+				about: path.resolve(__dirname, 'src/about.html'),
+				work: path.resolve(__dirname, 'src/work.html'),
+				contact: path.resolve(__dirname, 'src/contact.html')
+			}
+		}
 	},
-	plugins: [glsl()],
-})
+	plugins: [glsl()]
+});
