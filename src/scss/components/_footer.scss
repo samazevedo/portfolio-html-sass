@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as vars;
 .footer {
+	width: 100%;
 	background-color: vars.$dark-color;
 	color: vars.$light-color;
 	@media (max-width: 30rem) {
@@ -23,6 +24,7 @@
 		margin: auto;
 		padding: 2rem;
 		place-items: center;
+		max-width: vars.$website-width;
 
 		@media (max-width: 48rem) {
 			/* 768px */
