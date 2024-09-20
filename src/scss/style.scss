@@ -18,12 +18,14 @@
 @use './components/stats';
 @use './components/process';
 @use './components/footer';
-@use './components/work';
+
 // layout
 //pages
 @use './pages/canvas';
 @use './pages/home';
 @use './pages/about';
+@use './pages/work';
+@use './pages/contact';
 
 // themes
 

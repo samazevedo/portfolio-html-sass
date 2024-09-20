@@ -25,6 +25,11 @@
 			}
 		}
 	}
+	&__two {
+		a {
+			color: vars.$dark-color !important;
+		}
+	}
 }
 
 #typewriter {

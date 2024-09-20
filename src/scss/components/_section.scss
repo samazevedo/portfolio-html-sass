@@ -1,6 +1,7 @@
 @use '../abstracts/variables' as vars;
 
 .section {
+	position: relative;
 	text-align: center;
 	padding: 1rem 0;
 	max-width: vars.$website-width;
